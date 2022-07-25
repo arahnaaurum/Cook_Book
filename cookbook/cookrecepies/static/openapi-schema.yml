@@ -1,0 +1,70 @@
+openapi: 3.0.2
+info:
+ title: 'cookbook'
+ version: '0.1'
+    
+paths:
+ /recipes/:
+   get:
+     operationId: listRecipes
+     description: 'List of recipes'
+     parameters: []
+     responses:
+       '200':
+         content:
+           application/json:
+             schema:
+               type: array
+               items:
+                 $ref: '#/components/schemas/Recipe'
+         description: ''
+     tags:
+     - recipes
+ /recipes?category={category}/:
+   get:
+     operationId: listRecipesByCategory
+     description: 'List of recipes by category'
+     parameters:
+        - in: query
+          name: category
+          schema:
+            type: string
+          required: true
+          description: category of recipe
+     responses:
+       '200':
+         content:
+           application/json:
+             schema:
+               type: array
+               items:
+                 $ref: '#/components/schemas/RecipeCat'
+         description: ''
+     tags:
+     - recipes by category
+components:
+  schemas:
+    Recipe:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 50
+        text:
+          type: string
+        category:
+          type: string
+      required:
+      - title
+    RecipeCat:
+      type: object
+      properties:
+        title:
+          type: string
+          maxLength: 50
+        text:
+          type: string
+        category:
+          type: string
+      required:
+      - title

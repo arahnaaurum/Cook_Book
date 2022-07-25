@@ -1,0 +1,12 @@
+.recipe_container {
+    font-size: 20px;
+}
+
+.recipe_link {
+    text-decoration: none;
+    color: rgb(39, 105, 83);
+}
+
+.recipe_link:hover {
+    color: rgb(90, 189, 156);
+}
