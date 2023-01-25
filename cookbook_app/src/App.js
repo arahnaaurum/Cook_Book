@@ -3,6 +3,7 @@ import './App.css';
 import { Link, Routes, Route } from 'react-router-dom';
 import Recipes from './Recipes';
 import Recipe from './Recipe';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -18,13 +19,14 @@ function App() {
       </header>
       
       <main>
-      <h3 className='greeting'>Добро пожаловать и приятного аппетита!</h3>
+      <h2 className='greeting'>Приятного аппетита!</h2>
       <Routes>
           <Route path="/"></Route>
           <Route path=":category" element={<Recipes/>}> </Route>
           <Route path=":category/:index" element={<Recipe/>}></Route>
       </Routes>
       </main >
+      <Footer/>
     </div>
   );
 }

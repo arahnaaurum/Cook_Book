@@ -8,9 +8,6 @@ function Recipe () {
     let backway = "/" + category
     let index = params.index;
 
-    console.log(category)
-    console.log(index)
-
     const [listOfRecipes, setListOfRecipes] = useState();
     useEffect(()=> {
         fetch(`http://127.0.0.1:8000/recipes?category=${category}`)
@@ -18,10 +15,7 @@ function Recipe () {
         .then((result) => {
         setListOfRecipes(result)})          
     }, [category]);
-  
-        
-    console.log(listOfRecipes);
-    
+      
     if (listOfRecipes) {
         const title = listOfRecipes[index].title;
         const text = listOfRecipes[index].text;
